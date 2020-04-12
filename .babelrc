@@ -1,0 +1,34 @@
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-env": {
+          "useBuiltIns": "usage",
+          "corejs": "3.6"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "styled-components",
+      {
+        "ssr": true,
+        "displayName": true
+      }
+    ],
+    [
+      "inline-react-svg",
+      {
+        "svgo": {
+          "plugins": [
+            {
+              "convertPathData": false
+            }
+          ]
+        }
+      }
+    ]
+  ]
+}
