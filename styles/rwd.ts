@@ -1,4 +1,4 @@
-import {
+import styled, {
   css, CSSObject, SimpleInterpolation, FlattenSimpleInterpolation,
 } from 'styled-components';
 import { remCalc } from './utils';
@@ -48,5 +48,29 @@ const rwd = Object.keys(sizes).reduce<RWDObject>((acc: RWDObject, label) => {
 
   return acc;
 }, ({} as RWDObject));
+
+interface DisplayOnBreakpointProps {
+  down?: boolean;
+  up?: boolean;
+  breakpoint: Breakpoint;
+}
+
+export const DisplayOnBreakpoint = styled.div<DisplayOnBreakpointProps>`
+  ${props => props.down && css`
+    display: block;
+
+    ${rwd[props.breakpoint]`
+      display: none;
+    `}
+  `}
+
+  ${props => props.up && css`
+    display: none;
+
+    ${rwd[props.breakpoint]`
+      display: block;
+    `}
+  `}
+`;
 
 export default rwd;
