@@ -35,5 +35,14 @@ module.exports = {
       "error",
       { functions: false, classes: true, variables: true, typedefs: true },
     ],
-  }
-}
+  },
+
+  "overrides": [
+    {
+      "files": ["*.styled.ts"],
+      "rules": {
+        "import/prefer-default-export": "off",
+      },
+    },
+  ],
+};
